@@ -1,5 +1,5 @@
 @echo off
-
+REM Creado por Wilfredo Chipana año 2021
 :menu
 cls
 title Administrador de carpetas
@@ -10,9 +10,10 @@ echo          1.-Crear carpeta
 echo          2._Esconder carpeta
 echo          3._Mostrar carpeta oculta
 echo          4._Eliminar carpeta
-echo          5._Libre
+echo          5._Nuevo documento
 echo          6._Cerrar ventana
 echo          7._Cerrar programa
+echo          8._Libre
 echo ***********************************
 echo.
 echo.
@@ -22,9 +23,10 @@ if %ver%==1 goto Nuevo
 if %ver%==2 goto Esconder
 if %ver%==3 ( goto :Mostrar)
 if %ver%==4 goto Eliminar
-if %ver%==5 goto menu
+if %ver%==5 goto NuevoDocumento
 if %ver%==6 ( exit)
 if %ver%==7 ( goto CerrarPrograma)
+if %ver%==8 goto menu
 echo.
 echo %ver% no es una opcion correcta.
 echo PULSE ENTER...
@@ -62,11 +64,67 @@ echo %eliminar% NO ES UNA APCION.
 pause
 goto menu
 
+:NuevoDocumento
+REM Aqui se muestra un menu con opciones para navegar en el directorio.
+rem tambien una opcion para crear un nuevo documento.
+color 30
+cls
+echo **********************************************************
+echo              MOSTRANDO ARCHIVOS DE DIRECTORIO
+echo **********************************************************
+dir
+echo.
+echo **********************************************************
+echo                   OPCIONES
+echo **********************************************************
+echo             1._Subir un nivel.
+echo             2._Ir a...
+echo             3._Crear documento.
+echo             4._Volver al menu.
+echo             5._Cerrar programa.
+echo **********************************************************
+echo.
+echo Ingrese el numero de opcion.
+set/p option=   
+if %option%==1 ( cd.. & goto NuevoDocumento)
+if %option%==2 goto Ir_A
+if %option%==3 goto CrearDocumento
+if %option%==4 goto menu
+if %option%==5 goto CerrarPrograma
+echo %option% no es una opcion.
+pause
+goto NuevoDocumento
+
+
+:Ir_A
+echo Ir a...
+set/p direccion=
+if exist %direccion% ( cd %direccion%) else goto MensajeDocumento
+goto NuevoDocumento
+
+:CrearDocumento
+echo Ingrese nombre del nuevo documento.
+set/p nuevoDoc=
+echo >>%nuevoDoc%
+echo El documento %nuevoDoc% se ha creado correctamente.
+echo.
+pause
+goto NuevoDocumento
+
+:MensajeDocumento
+echo ***********DIRECTORIO NO ENCONTRADO*******
+echo Desea volver al menu?
+echo S = si      N = no ...
+set/p retorno=
+if %retorno%==s ( goto :menu )
+if %retorno%==n goto NuevoDocumento
+pause
+
 :CerrarPrograma
 taskkill /IM cmd.exe
 
 
-
+	
 
 
 
