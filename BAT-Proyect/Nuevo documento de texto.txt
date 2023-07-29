@@ -1,0 +1,33 @@
+@echo off
+:menu
+cls
+color 3C
+echo ***********************************
+echo 1.-Saver direcc IP
+echo 2._Ir a pagina
+echo 3._Salir
+echo ***********************************
+echo.
+echo.
+SET /p ver=Que desea hacer?
+if %ver%==1 goto IP
+if %ver%==2 goto pagina
+if %ver%==3 goto Salir
+:
+cls
+title Saber direccion IP
+color F
+echo PRESIONE ENTER PARA CONTINUAR
+pause >nul
+cd..
+cd..
+ipconfig
+echo.
+echo.
+echo PRESIONE ENTER PARA SALIR
+pause >nul
+goto menu
+
+:pagina
+Start http://www.youtube
+msg

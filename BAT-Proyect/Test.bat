@@ -2,6 +2,8 @@
 @title off
 set col=02
 
+REM Esto es un comentario	
+::Esto tambien es un comentario
 :menu
 cls
 title Menu Principal  //Creado por Wilfredo Chipana
@@ -20,7 +22,7 @@ echo ***********************************
 echo.
 echo.
 echo  Por favor ingrese una opcion del menu.
-SET/p ver= --Opcion:  
+SET/p ver= --Opcion:
 if %ver%==1 goto IP
 if %ver%==2 goto pagina
 if %ver%==3 ( goto Color)
@@ -82,27 +84,37 @@ msg * Bienvenidos*
 msg * Hola*
 echo.
 echo PRESIONE ENTER PARA regresar
+goto menu
 
 :Color
 cls
-echo Ingrese un numero y letra para cambiar de color.	
+echo Ingrese dos caracteres sea un numero del 0 al 9 o letra de A hasta F para cambiar de color.	
 echo Cualquier otro caracter de mostrara la ayuda.
-set/p col=
+set/p col="Ingrese dos caracteres: "
 color %col%
-if not exist %col% ( goto Mensaje2) else goto Mensaje
+::if exist %col% ( goto Mensaje2)
+goto MensajeColor
 pause>nul
+cls
+goto menu
+
+:MensajeColor
+echo Volver al menu  & msg * El valor introducido es %col%
+pause
 cls
 goto menu
 
 :Mensaje
 echo Color no cambiado.
 pause>nul
+cls
 goto menu
 
 :Mensaje2
 echo COLOR ACTUAL ES %col%
 echo Volver al menu  & msg * Color cambiado
 pause
+cls
 goto menu
 
 :Salir
