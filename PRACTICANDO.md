@@ -1,4 +1,4 @@
 # Practica-BATCH
-Solo es practica de codigo BATCH
+Solo es práctica de codigo BATCH
 sin ningun proposito especial mas que
-la practica
+la práctica
