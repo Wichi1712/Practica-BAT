@@ -3,7 +3,7 @@
 :menu
 cls
 title Vice CIty  //Creado por Wilfredo Chipana
-color 3f
+color 1f
 echo               VICE CITY
 echo ***********************************
 echo          1.-Abrir claves de ViceCity
@@ -32,11 +32,11 @@ pause>nul
 goto menu
 
 :Claves
-start /d "C:\Users\CHIPANA\Desktop" CLAVES_gta_vice.txt
+start /d "D:\proyectos\BAT_proyectos" CLAVES_gta_vice.txt
 goto menu
 
 :Vice
-start /d "C:\Program Files (x86)\Rockstar Games\Grand Theft Auto Vice City" gta-vc.exe
+start /d "D:\gta" gta_sa.exe
 goto menu
 
 :CerrarPrograma

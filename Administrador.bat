@@ -67,25 +67,28 @@ goto menu
 :NuevoDocumento
 REM Aqui se muestra un menu con opciones para navegar en el directorio.
 rem tambien una opcion para crear un nuevo documento.
-color 30
+color f0
 cls
+rem echo **********************************************************
+rem echo              MOSTRANDO ARCHIVOS DE DIRECTORIO
+rem echo **********************************************************
+rem dir
+rem echo.
 echo **********************************************************
-echo              MOSTRANDO ARCHIVOS DE DIRECTORIO
+echo            OPCIONES DE NUEVO DOCUMENTO
+echo Aqui puede crear documentos txt y navegar por directorios
 echo **********************************************************
-dir
-echo.
-echo **********************************************************
-echo                   OPCIONES
-echo **********************************************************
+echo             0._Mostrar directorios.
 echo             1._Subir un nivel.
 echo             2._Ir a...
 echo             3._Crear documento.
-echo             4._Volver al menu.
+echo             4._Volver al administrador.
 echo             5._Cerrar programa.
 echo **********************************************************
 echo.
 echo Ingrese el numero de opcion.
-set/p option=   
+set/p option=  
+if %option%==0 goto mostrarDirectorios
 if %option%==1 ( cd.. & goto NuevoDocumento)
 if %option%==2 goto Ir_A
 if %option%==3 goto CrearDocumento
@@ -95,6 +98,15 @@ echo %option% no es una opcion.
 pause
 goto NuevoDocumento
 
+:MostrarDirectorios
+cls
+echo **********************************************************
+echo              MOSTRANDO ARCHIVOS DE DIRECTORIO
+echo **********************************************************
+dir
+echo.
+pause
+goto NuevoDocumento
 
 :Ir_A
 echo Ir a...

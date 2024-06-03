@@ -53,6 +53,26 @@ echo PRESIONE ENTER PARA SALIR
 pause >nul
 goto menu
 
+:pagina
+Start http://www.youtube.com
+msg * Bienvenidos*
+msg * Hola*
+echo.
+echo PRESIONE ENTER PARA regresar
+goto menu
+
+:Color
+cls
+echo Ingrese dos caracteres sea un numero del 0 al 9 o letra de A hasta F para cambiar de color.	
+echo Cualquier otro caracter de mostrara la ayuda.
+set/p col="Ingrese dos caracteres: "
+color %col%
+::if exist %col% ( goto Mensaje2)
+goto MensajeColor
+pause>nul
+cls
+goto menu
+
 :RedConeccion:
 cls
 title Revisar coneccion de red.
@@ -78,25 +98,7 @@ cls
 start "C:\Users\CHIPANA\Desktop\Willy\BAT_proyectos" Administrador.bat
 goto menu
 
-:pagina
-Start http://www.youtube.com
-msg * Bienvenidos*
-msg * Hola*
-echo.
-echo PRESIONE ENTER PARA regresar
-goto menu
-
-:Color
-cls
-echo Ingrese dos caracteres sea un numero del 0 al 9 o letra de A hasta F para cambiar de color.	
-echo Cualquier otro caracter de mostrara la ayuda.
-set/p col="Ingrese dos caracteres: "
-color %col%
-::if exist %col% ( goto Mensaje2)
-goto MensajeColor
-pause>nul
-cls
-goto menu
+REM Estas opciones funcionan con el menu color*******
 
 :MensajeColor
 echo Volver al menu  & msg * El valor introducido es %col%
@@ -117,8 +119,10 @@ pause
 cls
 goto menu
 
+REM Fin Color********
+
 :Salir
-msg * Gracias
+msg * /time:3 Gracias hasta luego.
 exit
 
 
